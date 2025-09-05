@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import Test from "./Test";
 
 const Section = styled.div`
   height: 100vh;
@@ -80,7 +80,7 @@ const Who = () => {
     <Section>
       <Container>
         <Left>
-        
+          <Test />
         </Left>
         <Right>
           <Title>Think outside the square space</Title>
