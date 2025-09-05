@@ -1,6 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
+import { Canvas } from "@react-three/fiber";
+import {
+  OrbitControls,
+  Sphere,
+  MeshDistortMaterial,
+  GradientTexture,
+} from "@react-three/drei";
 
 const Section = styled.div`
   height: 100vh;
@@ -96,7 +103,7 @@ const Right = styled.div`
 
 const Img = styled.img`
   width: 800px;
-  height: 600px;
+  height: 500px;
   object-fit: contain;
   position: absolute;
   top: 0;
@@ -107,8 +114,8 @@ const Img = styled.img`
   animation: animate 2s infinite ease alternate;
 
   @media only screen and (max-width: 768px) {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
   }
 
   @keyframes animate {
@@ -135,7 +142,23 @@ const Hero = () => {
           <Button>Learn More</Button>
         </Left>
         <Right>
-       
+          <Canvas camera={{ fov: 25, position: [5, 5, 5] }}>
+            <ambientLight intensity={2} />
+            <Sphere args={[5, 100, 200]} scale={0.5}>
+              <MeshDistortMaterial
+                attach="material"
+                color="#e20e0eff"
+                distort={2}
+                speed={1}
+              >
+              <GradientTexture
+                stops={[0, 0.8, 1]}
+                colors={["#e63946", "#5791f5ff", "#a8dadc"]}
+                size={100}
+              />
+              </MeshDistortMaterial>
+            </Sphere>
+          </Canvas>
           <Img src="./img/moon.png" />
         </Right>
       </Container>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import Development from "./Development";
+import ProductDesign from "./ProductDesign";
+import WebDesign from "./WebDesign";
 
 const data = [
   "Web Design",
@@ -106,7 +108,15 @@ const Works = () => {
             ))}
           </List>
         </Left>
-        <Right></Right>
+        <Right>
+          {work === "Web Design" ? (
+            <WebDesign />
+          ) : work === "Development" ? (
+            <Development />
+          ) : (
+            <ProductDesign />
+          )}
+        </Right>
       </Container>
     </Section>
   );
