@@ -29,16 +29,14 @@ const ChairPage = () => {
     <>
       <Canvas camera={{ position: [0, 0, 10] }}>
         <Suspense fallback={null}>
-          <Stage intensity={2}>
             <Chair />
-          </Stage>
           <OrbitControls enableZoom={false} autoRotate />
         </Suspense>
       </Canvas>
-      <Desc>
+      {/* <Desc>
         We design products with a strong focus on both world class design and
         ensuring your product is a market success.
-      </Desc>
+      </Desc> */}
     </>
   );
 };

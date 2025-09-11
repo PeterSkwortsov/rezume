@@ -14,7 +14,7 @@ export default function Chair(props) {
   const { nodes, materials } = useGLTF("/chair.glb");
   return (
     <group {...props} dispose={null} scale={0.009}>
-      <directionalLight position={[1, 2, 3]} intensity={2}/>
+      {/* <directionalLight position={[1, 2, 3]} intensity={2} /> */}
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group
@@ -26,16 +26,13 @@ export default function Chair(props) {
               receiveShadow
               name="Object_2"
               geometry={nodes.Object_2.geometry}
-            >
-              <meshStandardMaterial color={"red"} />
-            </mesh>
+              material={materials["default"]}
+            ></mesh>
             <mesh
               name="Object_3"
               geometry={nodes.Object_3.geometry}
               material={materials["default"]}
-            >
-              <meshStandardMaterial color={"red"} />
-            </mesh>
+            ></mesh>
             <mesh
               name="Object_4"
               geometry={nodes.Object_4.geometry}
