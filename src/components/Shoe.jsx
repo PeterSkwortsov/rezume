@@ -5,7 +5,7 @@ import { useGLTF } from "@react-three/drei";
 export default function Shoe({ color, ...props }) {
   const { nodes, materials } = useGLTF("/shoe.gltf");
   return (
-    <group {...props} dispose={null} scale={2}>
+    <group {...props} dispose={null} scale={3}>
         <ambientLight intensity={2}/>
       <mesh
         castShadow
@@ -16,7 +16,7 @@ export default function Shoe({ color, ...props }) {
       />
       <mesh castShadow receiveShadow geometry={nodes.shoe_1.geometry}>
         <meshStandardMaterial
-          color="purple"
+          color="red"
           aoMap={materials.mesh.aoMap}
           normalMap={materials.mesh.normalMap}
           normalMap-encoding={THREE.LinearEncoding}

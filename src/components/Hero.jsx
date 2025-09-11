@@ -142,21 +142,11 @@ const Hero = () => {
           <Button>Learn More</Button>
         </Left>
         <Right>
-          <Canvas camera={{ fov: 25, position: [5, 5, 5] }}>
-            <ambientLight intensity={2} />
-            <Sphere args={[5, 100, 200]} scale={0.5}>
-              <MeshDistortMaterial
-                attach="material"
-                color="#e20e0eff"
-                distort={2}
-                speed={1}
-              >
-              <GradientTexture
-                stops={[0, 0.8, 1]}
-                colors={["#e63946", "#5791f5ff", "#a8dadc"]}
-                size={100}
-              />
-              </MeshDistortMaterial>
+          <Canvas>
+            <OrbitControls enableZoom={false} />
+            <directionalLight position={[3, 2, 1]} intensity={3} />
+            <Sphere args={[1, 100, 200]} scale={2}>
+             <MeshDistortMaterial color={"#da4ea2"} attach="material" distort={0.5} speed={2}/>
             </Sphere>
           </Canvas>
           <Img src="./img/moon.png" />

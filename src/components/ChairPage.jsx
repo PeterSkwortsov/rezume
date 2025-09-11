@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stage } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Atom from "./Atom";
 import styled from "styled-components";
+import Chair from "./Chair";
 
 const Desc = styled.div`
   width: 200px;
@@ -11,8 +12,8 @@ const Desc = styled.div`
   background-color: white;
   border-radius: 10px;
   position: absolute;
-  top: 80px;
-  right: 450px;
+  top: 200px;
+  right: 100px;
 
   @media only screen and (max-width: 768px) {
     top: 0;
@@ -23,12 +24,14 @@ const Desc = styled.div`
   }
 `;
 
-const Development = () => {
+const ChairPage = () => {
   return (
     <>
       <Canvas camera={{ position: [0, 0, 10] }}>
         <Suspense fallback={null}>
-          <Atom />
+          <Stage intensity={2}>
+            <Chair />
+          </Stage>
           <OrbitControls enableZoom={false} autoRotate />
         </Suspense>
       </Canvas>
@@ -40,4 +43,4 @@ const Development = () => {
   );
 };
 
-export default Development;
+export default ChairPage;

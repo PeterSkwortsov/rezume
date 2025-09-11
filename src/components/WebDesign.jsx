@@ -1,8 +1,9 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stage } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
 import styled from "styled-components";
 import Mac from "./Mac";
+import Chair from "./Chair";
 
 const Desc = styled.div`
   width: 200px;
@@ -26,10 +27,11 @@ const Desc = styled.div`
 const WebDesign = () => {
   return (
     <>
-      <Canvas>
+      <Canvas camera={{ position: [0, 0, 10] }}>
         <Suspense fallback={null}>
-            
+          <Stage>
             <Mac />
+          </Stage>
           <OrbitControls enableZoom={false} autoRotate />
         </Suspense>
       </Canvas>

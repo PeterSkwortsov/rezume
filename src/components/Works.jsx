@@ -3,13 +3,15 @@ import styled from "styled-components";
 import Development from "./Development";
 import ProductDesign from "./ProductDesign";
 import WebDesign from "./WebDesign";
+import Chair from "./Chair";
+import ChairPage from "./ChairPage";
+import Shoe from "./Shoe";
 
 const data = [
   "Web Design",
   "Development",
   "Illustration",
-  "Product Design",
-  "Social Media",
+  "Product Design"
 ];
 
 const Section = styled.div`
@@ -109,13 +111,10 @@ const Works = () => {
           </List>
         </Left>
         <Right>
-          {work === "Web Design" ? (
-            <WebDesign />
-          ) : work === "Development" ? (
-            <Development />
-          ) : (
-            <ProductDesign />
-          )}
+          {work === "Web Design" ? ( <WebDesign />) : 
+          work === "Development" ? (<Development />) : 
+          work === "Illustration" ? (<ChairPage />)
+          : (<ProductDesign />)}
         </Right>
       </Container>
     </Section>
