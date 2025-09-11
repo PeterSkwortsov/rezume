@@ -5,6 +5,7 @@ import * as THREE from "three";
 import Shoe from "./Shoe";
 import { MeshReflectorMaterial } from "@react-three/drei";
 import Chair from "./Chair";
+import Venus from "./Venus";
 
 function Model({ url }) {
   const { scene } = useGLTF(url);
@@ -67,12 +68,12 @@ function MovingLight() {
     <>
       <SpotLight
         ref={lightRef}
-        distance={40}
-        angle={2}
+        distance={90}
+        angle={6}
         attenuation={5}
         anglePower={5}
         intensity={50}
-        color="#fff"
+        color="#ffffffff"
         target={targetRef.current}
       />
       <object3D ref={targetRef} position={[0, 0, 0]} />
@@ -85,24 +86,21 @@ export default function WebDesign() {
 
   return (
     <>
-<Suspense fallback={null}>
-      <Canvas
-        camera={{ position: [0, 0, 10] }}
-        onCreated={() => setModelLoaded(true)}
-      >
-        {/* <ambientLight intensity={0.2} /> */}
-        {modelLoaded && <MovingLight />}
+      <Suspense fallback={null}>
+        <Canvas
+          camera={{ position: [0, 0, 8] }}
+          onCreated={() => setModelLoaded(true)}
+        >
+          {/* <ambientLight intensity={0.2} /> */}
+          {modelLoaded && <MovingLight />}
 
-        <OrbitControls enableZoom={false} />
+          <OrbitControls enableZoom={false} />
 
-        <mesh position={[0, 0, 0]}>
-          <Chair />
-        </mesh>
-
-       
-      </Canvas>
-
-  </Suspense>
+          <mesh position={[0, -6.5, 0]}>
+            <Venus />
+          </mesh>
+        </Canvas>
+      </Suspense>
     </>
   );
 }
