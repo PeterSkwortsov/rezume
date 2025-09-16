@@ -4,6 +4,8 @@ import Who from "./components/Who";
 import Works from "./components/Works";
 import Contact from "./components/Contact";
 import Test from "./components/Test";
+import Marquee from "./components/Marquee";
+
 const Container = styled.div`
   height: 100vh;
   scroll-snap-type: y mandatory;
@@ -24,7 +26,9 @@ function App() {
  <Who />
       <Works />
       <Contact />
+      <Marquee />
     </Container>
+    
   );
 }
 
