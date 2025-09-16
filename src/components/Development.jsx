@@ -12,7 +12,7 @@ const Desc = styled.div`
   border-radius: 10px;
   position: absolute;
   top: 80px;
-  right: 450px;
+  right: 150px;
 
   @media only screen and (max-width: 768px) {
     top: 0;

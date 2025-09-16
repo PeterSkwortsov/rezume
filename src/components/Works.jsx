@@ -8,7 +8,7 @@ import ChairPage from "./ChairPage";
 import Shoe from "./Shoe";
 
 const data = [
-  "Web Design",
+  "Презентация товаров",
   "Development",
   "Illustration",
   "Product Design"
@@ -55,10 +55,9 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  font-size: 90px;
+  font-size: 40px;
   font-weight: bold;
   cursor: pointer;
-  color: transparent;
   -webkit-text-stroke: 1px white;
   position: relative;
 
@@ -111,10 +110,15 @@ const Works = () => {
           </List>
         </Left>
         <Right>
-          {work === "Web Design" ? ( <WebDesign />) : 
-          work === "Development" ? (<Development />) : 
-          work === "Illustration" ? (<ChairPage />)
-          : (<ProductDesign />)}
+          {work === "Презентация товаров" ? (
+            <WebDesign />
+          ) : work === "Development" ? (
+            <Development />
+          ) : work === "Illustration" ? (
+            <ChairPage />
+          ) : (
+            <ProductDesign />
+          )}
         </Right>
       </Container>
     </Section>

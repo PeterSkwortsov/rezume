@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Atom from "./Atom";
 import styled from "styled-components";
 import Chair from "./Chair";
+import Mac from "./Mac";
 
 const Desc = styled.div`
   width: 200px;
@@ -27,10 +28,10 @@ const Desc = styled.div`
 const ChairPage = () => {
   return (
     <>
-      <Canvas camera={{ position: [0, 0, 10] }}>
+      <Canvas camera={{ position: [0, 0, 5] }}>
         <Suspense fallback={null}>
-            <Chair />
-          <OrbitControls enableZoom={false} autoRotate />
+          <Mac />
+          {/* <OrbitControls enableZoom={false}  /> */}
         </Suspense>
       </Canvas>
       {/* <Desc>

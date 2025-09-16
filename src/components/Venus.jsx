@@ -9,24 +9,51 @@ Title: Venus de Milo (Aphrodite of Milos)
 
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
-
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { Text, RenderTexture, PerspectiveCamera } from '@react-three/drei'
 export default function Venus(props) {
   const { nodes, materials } = useGLTF('/venus.glb')
+
+
   return (
-    <group {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]} scale={0.005}>
-          <group name="Venus_de_Milo_SMK_KAS434_1_10pctobjcleanergles" position={[-340.386, -358.06, -0.634]}>
-            <group name="Object_2">
-              <mesh name="Object_3" geometry={nodes.Object_3.geometry} material={materials['default']} />
-              <mesh name="Object_4" geometry={nodes.Object_4.geometry} material={materials['default']} />
-              <mesh name="Object_5" geometry={nodes.Object_5.geometry} material={materials['default']} />
+    <>
+      
+
+        <group {...props} dispose={null} >
+          <group name="Sketchfab_Scene">
+            <group
+              name="Sketchfab_model"
+              rotation={[-Math.PI / 2, 0, 0]}
+              scale={0.005}
+            >
+              <group
+                name="Venus_de_Milo_SMK_KAS434_1_10pctobjcleanergles"
+                position={[-340.386, -358.06, -0.634]}
+              >
+                <group name="Object_2">
+                  <mesh
+                    name="Object_3"
+                    geometry={nodes.Object_3.geometry}
+                    material={materials["default"]}
+                  />
+                  <mesh
+                    name="Object_4"
+                    geometry={nodes.Object_4.geometry}
+                    material={materials["default"]}
+                  />
+                  <mesh
+                    name="Object_5"
+                    geometry={nodes.Object_5.geometry}
+                    material={materials["default"]}
+                  />
+                </group>
+              </group>
             </group>
           </group>
         </group>
-      </group>
-    </group>
-  )
+    </>
+  );
 }
 
 useGLTF.preload('/venus.glb')

@@ -1,11 +1,19 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, useGLTF, SpotLight } from "@react-three/drei";
+import {
+  OrbitControls,
+  useGLTF,
+  SpotLight,
+  PresentationControls,
+  RenderTexture,
+  Text,
+} from "@react-three/drei";
 import { useRef, useState, useEffect, Suspense } from "react";
 import * as THREE from "three";
 import Shoe from "./Shoe";
 import { MeshReflectorMaterial } from "@react-three/drei";
 import Chair from "./Chair";
 import Venus from "./Venus";
+import { PerspectiveCamera } from "@react-three/drei";
 
 function Model({ url }) {
   const { scene } = useGLTF(url);
@@ -42,10 +50,14 @@ function MovingLight() {
     };
   }, []);
 
+
+
   useFrame((state) => {
     // Нормализуем координаты мыши от -1 до 1
     const x = (mouse.x * viewport.width) / 2;
     const y = (mouse.y * viewport.height) / 2;
+
+
 
     // Если зажат Shift, изменяем Z-координату вместо Y
     if (isShiftPressed) {
@@ -66,15 +78,12 @@ function MovingLight() {
 
   return (
     <>
-      <SpotLight
+      <pointLight
         ref={lightRef}
-        distance={90}
-        angle={6}
-        attenuation={5}
-        anglePower={5}
-        intensity={50}
-        color="#ffffffff"
-        target={targetRef.current}
+        color="red"
+        intensity={120}
+        distance={5}
+        decay={2}
       />
       <object3D ref={targetRef} position={[0, 0, 0]} />
     </>
@@ -88,17 +97,14 @@ export default function WebDesign() {
     <>
       <Suspense fallback={null}>
         <Canvas
-          camera={{ position: [0, 0, 8] }}
+          camera={{ position: [0, 0, 9] }}
           onCreated={() => setModelLoaded(true)}
         >
-          {/* <ambientLight intensity={0.2} /> */}
           {modelLoaded && <MovingLight />}
 
           <OrbitControls enableZoom={false} />
 
-          <mesh position={[0, -6.5, 0]}>
-            <Venus />
-          </mesh>
+          <Venus position={[0, -6, 0]} />
         </Canvas>
       </Suspense>
     </>
