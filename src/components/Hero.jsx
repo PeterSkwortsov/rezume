@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "./Navbar";
 import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -25,7 +24,7 @@ const Section = styled.div`
 const Container = styled.div`
   height: 100%;
   scroll-snap-align: center;
-  width: 1400px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -38,11 +37,12 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
-  flex: 2;
+  flex: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  margin-left:1rem;
 
   @media only screen and (max-width: 768px) {
     flex: 1;
@@ -93,7 +93,7 @@ const Button = styled.button`
 `;
 
 const Right = styled.div`
-  flex: 3;
+  flex: 2;
   position: relative;
   @media only screen and (max-width: 768px) {
     flex: 1;
@@ -128,7 +128,6 @@ const Img = styled.img`
 const Hero = () => {
   return (
     <Section>
-      <Navbar />
       <Container>
         <Left>
           <Title>Think. Make. Solve.</Title>
@@ -149,7 +148,7 @@ const Hero = () => {
              <MeshDistortMaterial color={"#da4ea2"} attach="material" distort={0.5} speed={2}/>
             </Sphere>
           </Canvas>
-          <Img src="./img/moon.png" />
+          {/* <Img src="./img/moon.png" /> */}
         </Right>
       </Container>
     </Section>
