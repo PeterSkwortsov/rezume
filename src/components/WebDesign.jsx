@@ -104,7 +104,7 @@ export default function WebDesign() {
 
           <OrbitControls enableZoom={false} />
 
-          <Venus position={[0, -6, 0]} />
+          <Venus position={[0, -2, 0]} />
         </Canvas>
       </Suspense>
     </>
